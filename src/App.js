@@ -105,7 +105,7 @@ export default function App() {
     }
     
     React.useEffect(() => {
-        // console.log('useEffect function ran');
+        // alert('useEffect function ran');
         async function api() {
             // console.log("a")
             let category = data.category && `&category=${data.category}`;
@@ -113,7 +113,7 @@ export default function App() {
             const quiz = await fetch(`https://opentdb.com/api.php?amount=${data.numberOfQuestions}${category}${difficulty}`);
             const result = await quiz.json();
             // setQuizzes(result.results);
-            await setQuizzes(() => result.results.map(i => {
+            setQuizzes(() => result.results.map(i => {
                 // const arr = [];
                 return {
                     question: i.question,
@@ -126,7 +126,17 @@ export default function App() {
             setLoad(true);
             
         }
+
         api();
+        if(!data.numberOfQuestions) {
+            setFormVal(prev => {
+                return {...prev, status: false}
+            });
+        } else {
+            setFormVal(prev => {
+                return {...prev, status: true}
+            });
+        }
         // setRunAPI(false);
     }, [newGame, data.category, data.numberOfQuestions, data.difficulty]);
     

@@ -59,10 +59,13 @@ export default function Settings(props) {
                             props.showQuizzes()
                             props.playAgainBtn();
                             props.setLoad(false);
+                            // props.setFormVal(prev => {
+                            //     return {...prev, status: true}
+                            // });
                         } else {
-                            props.setFormVal(prev => {
-                                return {...prev, status: false}
-                            })
+                            // props.setFormVal(prev => {
+                            //     return {...prev, status: false}
+                            // })
                         }
                     }}>Continue</button>
                 </div>
