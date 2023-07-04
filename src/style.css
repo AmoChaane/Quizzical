@@ -251,6 +251,7 @@ select, input {
     padding: 0 2%;
     outline: none;
     font-size: 1.03em;
+    background-color: white;
 }
 
 input {
